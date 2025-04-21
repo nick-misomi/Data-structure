@@ -1,0 +1,37 @@
+#include <stdio.h>
+#define MAX 5
+
+int stack[MAX], top = -1;
+
+void push(int value) {
+    if (top < MAX - 1) {
+        stack[++top] = value;
+    } else {
+        printf("Stack is full\n");
+    }
+}
+
+void pop() {
+    if (top >= 0) {
+        top--;
+    } else {
+        printf("Stack is empty\n");
+    }
+}
+
+int topElement() {
+    if (top >= 0) {
+        return stack[top];
+    } else {
+        printf("Stack is empty\n");
+        return -1;
+    }
+}
+
+int main() {
+    push(10);
+    push(20);
+    pop();
+    printf("Top element: %d\n", topElement());
+    return 0;
+}

@@ -1,0 +1,103 @@
+// data_structures.c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Array Insertion & Deletion
+void insert(int arr[], int *size, int element, int position) {
+    for (int i = *size; i > position; i--) {
+        arr[i] = arr[i - 1];
+    }
+    arr[position] = element;
+    (*size)++;
+}
+
+void delete(int arr[], int *size, int position) {
+    for (int i = position; i < *size - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+    (*size)--;
+}
+
+// Queue using Array
+#define MAX_QUEUE_SIZE 5
+typedef struct {
+    int items[MAX_QUEUE_SIZE];
+    int front;
+    int rear;
+} Queue;
+
+void enqueue(Queue *q, int value) {
+    if (q->rear == MAX_QUEUE_SIZE - 1) {
+        printf("Queue is full\n");
+    } else {
+        q->items[++(q->rear)] = value;
+        if (q->front == -1) q->front = 0;
+    }
+}
+
+int dequeue(Queue *q) {
+    if (q->front == -1) {
+        printf("Queue is empty\n");
+        return -1;
+    } else {
+        int item = q->items[q->front];
+        if (q->front == q->rear) {
+            q->front = q->rear = -1;
+        } else {
+            q->front++;
+        }
+        return item;
+    }
+}
+
+// Stack using Array
+#define MAX_STACK_SIZE 5
+typedef struct {
+    int items[MAX_STACK_SIZE];
+    int top;
+} Stack;
+
+void push(Stack *s, int value) {
+    if (s->top == MAX_STACK_SIZE - 1) {
+        printf("Stack is full\n");
+    } else {
+        s->items[++(s->top)] = value;
+    }
+}
+
+int pop(Stack *s) {
+    if (s->top == -1) {
+        printf("Stack is empty\n");
+        return -1;
+    } else {
+        return s->items[(s->top)--];
+    }
+}
+
+// Main function to demonstrate
+int main() {
+    // Example for Array
+    int arr[100];
+    int size = 0;
+
+    insert(arr, &size, 10, 0); // Insert 10 at position 0
+    insert(arr, &size, 20, 1); // Insert 20 at position 1
+    delete(arr, &size, 0);      // Delete at position 0
+
+    // Example for Queue
+    Queue q;
+    q.front = q.rear = -1;
+
+    enqueue(&q, 1);
+    enqueue(&q, 2);
+    printf("Dequeued: %d\n", dequeue(&q));
+
+    // Example for Stack
+    Stack s;
+    s.top = -1;
+
+    push(&s, 5);
+    printf("Popped: %d\n", pop(&s));
+
+    return 0;
+}

@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+void insert(Node** head, int value) {
+    Node* new_node = (Node*)malloc(sizeof(Node));
+    new_node->data = value;
+    new_node->next = *head;
+    *head = new_node;
+}
+
+void delete(Node** head, int value) {
+    Node* temp = *head, *prev = NULL;
+    while (temp != NULL && temp->data == value) {
+        *head = temp->next;
+        free(temp);
+        temp = *head;
+    }
+    while (temp != NULL) {
+        while (temp != NULL && temp->data != value) {
+            prev = temp;
+            temp = temp->next;
+        }
+        if (temp == NULL) return;
+        prev->next = temp->next;
+        free(temp);
+        temp = prev->next;
+    }
+}
+
+void traverse(Node* head) {
+    while (head != NULL) {
+        printf("%d -> ", head->data);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+int main() {
+    Node* head = NULL;
+    insert(&head, 10);
+    insert(&head, 20);
+    delete(&head, 10);
+    traverse(head);
+    return 0;
+}

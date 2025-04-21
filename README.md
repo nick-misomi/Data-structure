@@ -1,66 +1,16 @@
---- Singly Linked List Operations ---
-1. Insert
-2. Traverse
-3. Search
-4. Delete
-5. Exit
-Enter your choice: 1
-Enter the value to insert: 10
-Value 10 inserted successfully.
+# Data Structures Implementations in C
 
---- Singly Linked List Operations ---
-1. Insert
-2. Traverse
-3. Search
-4. Delete
-5. Exit
-Enter your choice: 1
-Enter the value to insert: 20
-Value 20 inserted successfully.
+This repository contains simple implementations of basic data structures and their operations in C.
 
---- Singly Linked List Operations ---
-1. Insert
-2. Traverse
-3. Search
-4. Delete
-5. Exit
-Enter your choice: 2
-Linked List: 10 -> 20 -> NULL
+## Contents
 
---- Singly Linked List Operations ---
-1. Insert
-2. Traverse
-3. Search
-4. Delete
-5. Exit
-Enter your choice: 3
-Enter the value to search: 20
-Value 20 found in the list.
+1. **Insertion & Deletion Operations in Array**
+2. **Insertion, Deletion, Search, Traverse in Linked List**
+3. **Queue Implemented with Array (Enqueue, Dequeue)**
+4. **Queue Implemented with Linked List (Enqueue, Dequeue)**
+5. **Stack Implemented with Array (Push, Pop, Top)**
+6. **Stack Implemented with Linked List (Push, Pop, Top)**
 
---- Singly Linked List Operations ---
-1. Insert
-2. Traverse
-3. Search
-4. Delete
-5. Exit
-Enter your choice: 4
-Enter the value to delete: 10
-Value 10 deleted successfully.
+## Getting Started
 
---- Singly Linked List Operations ---
-1. Insert
-2. Traverse
-3. Search
-4. Delete
-5. Exit
-Enter your choice: 2
-Linked List: 20 -> NULL
-
---- Singly Linked List Operations ---
-1. Insert
-2. Traverse
-3. Search
-4. Delete
-5. Exit
-Enter your choice: 5
-Exiting the program.
+To run the examples below, copy the corresponding code into a `.c` file, compile it with a C compiler (like `gcc`), and execute the binary.
